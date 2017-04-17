@@ -1,5 +1,5 @@
 <?php
-$mode = isset($mode) ? $mode : 'return';
+$mode = isset($mode) ? $mode : 'echo';
 $num = isset($num) ? $num : 0;
 $input = isset($input) ? $input : '';
 $options = isset($options) ? $options : '';

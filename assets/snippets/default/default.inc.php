@@ -38,4 +38,4 @@ else{
 if(!empty($data[$val])){
     $val = $data[$val];
 }
-return $val;
+echo $val;
