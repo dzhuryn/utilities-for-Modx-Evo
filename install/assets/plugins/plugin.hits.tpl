@@ -1,8 +1,8 @@
 //<?php
 /**
- * compare
+ * hits
  *
- * compare plugin
+ * hits plugin
  *
  * @category    plugin
  * @version     0.1
