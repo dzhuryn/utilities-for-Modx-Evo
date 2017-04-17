@@ -9,7 +9,7 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @internal    @events OnWebPageInit
  * @internal    @modx_category sys
- * @internal    @legacy_names compare
+ * @internal    @legacy_names hits
  * @internal    @installset base
  *
  * @author Dzhuryn Volodymyr / updated: 2017-04-17

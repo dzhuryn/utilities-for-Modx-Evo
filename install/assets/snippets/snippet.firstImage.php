@@ -1,6 +1,6 @@
 //<?php
 /**
- * compare
+ * firstImage
  *
  * Вывод первой картинки
  *
@@ -8,6 +8,8 @@
  * @version 	0.1
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @internal	@modx_category sys
+ * @internal    @legacy_names firstImage
+ * @internal    @installset base
  */
 
 
