@@ -48,4 +48,37 @@ t3 Текст 1
 
     Пример [[plural? &n=`1` &t1=`отзыв` &t2=`отзыва` &t3=`отзывов`]]
 
+### getDocCount получение количества документов в папке
+Выборка по параметрам DocLister  
+round - округление в большую сторону. Если надо вывести не 121 , а 200 указываем round 0 ;  
  
+    Пример: [[getDocCount? &parents=`2`]]
+    Пример: [[getDocCount? &parents=`2` &round=`2`]]
+    
+
+### tvsList  вывод списка тв параметров для документа
+Снипет удобен когда надо вывеси таблицу с характеристиками товара  
+Для подстановки значеный из дерева в место id необходимый сниппет default
+
+1. selectType - тип выборки:  
+    * `*` - выбераем все тв параметры
+    * `category` - выбераем тв параметры из определьонных категорий, указаных в параметре `category` через зап'ятую 
+    * `tvs` - выбераем тв параметры указаные в параметре `tvs`
+    
+
+2. id - id докумнта для которого надо вывести список
+3. notDocId - id документа где в мульти тв параметре notIn  указаны тв параметры которые не надо выводить
+3. excludeTvs - список тв параметров которые на надо выводить через зап'ятаю
+4. Шаблон обертки        
+5. Шаблон строчки из название и значением параметра 
+       
+        [[tvsList?
+            &id=`7919`
+            &selectType=`category`
+            &category=`23`
+            &tvs=`tip_podveski,diametr_koles`
+            &notDocId=`1`
+            &excludeTvs = `vilka,pokryshka_perednyaya`
+            &outerTpl=`@CODE:<ul class="characrteristics__list  characrteristics__list--indent">[+wrapper+]</ul>`
+            &rowTpl=`@CODE:<li class="characrteristics__list-item"><span class="characrteristics__list-title">[+name+]</span><span class="characrteristics__list-info">[+value+]</span></li>`   
+        ]]
