@@ -95,6 +95,7 @@ round - округление в большую сторону. Если надо
 ##### Параметры
 1. displayConfig  настройка селекта или ссылок для указания количества товаров на странице. Пример: 20||30||40||все==all.  
 2. sortConfig  настройка  ссылок для указания поля по которому товары сортируються. Пример: По название==pagetitle||По индексу==menuindex
+3. ajax - использовать ли ajax по умолчанию ноль.
 
 ##### Шаблоны
 1. ownerTpl - Основная обертка блока.  
@@ -127,3 +128,14 @@ round - округление в большую сторону. Если надо
 1. displayDefault - количество елементов на странице по умолчанию
 2. sortFieldDefault - поле сортировки по умолчанию
 3. sortOrderDefault - направление сортировки по умолчанию
+
+##### Пример
+    [!evoSortBlock?
+        &ownerTpl=`<div  class="sorting-block__filters [+class+]"><form action="#">[+display.block+][+sort.block+]</form></div>`
+        &displayOwnerTpl=`<div class="sorting-block__filters-amount"><span class="sorting-block__filters-label">Показывать:</span><div class="sorting-block__select"><div class="inline-select"><select class="decor-select js-select[+class+]">[+wrapper+]</select></div></div></div>`
+        &sortOwnerTpl=`<div class="sorting-block__filters-type"><span class="sorting-block__filters-label sorting-block__filters-label--type">Сортировать:</span><div class="sorting-block__filters-block"><span class="sorting-block__filters-mobile-active"><span class="sorting-block__filters-mobile-active-inner">По популярности</span></span><ul class="sorting-block__filters-list">[+wrapper+]</ul></div></div>`
+        &sortRowTpl=`<li class="sorting-block__filters-item"><a href="#"  [+data+] [+selected+]  class="sorting-block__filters-link [+class+]">[+caption+]</a></li>`
+        &sortActiveClass=`is-active`
+        &sortConfig=`Название==pagetitle||Дата поступления==menuindex||Цена==price`
+        &ajax=`1`
+    !]
