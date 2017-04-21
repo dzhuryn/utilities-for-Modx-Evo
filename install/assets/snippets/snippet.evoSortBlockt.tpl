@@ -1,8 +1,8 @@
 //<?php
 /**
- * default 
+ * evoSortBlock
  *
- * Получание значение а не id для тв полей где указано возможние значения
+ * Формируем блок сортировки в каталог
  *
  * @category 	   snippet
  * @version 	   0.1
@@ -12,4 +12,4 @@
  * @internal   	   @installset base, sample
  */
 
-require MODX_BASE_PATH.'assets/snippets/default/default.inc.php';
+require MODX_BASE_PATH.'assets/snippets/utilities/evoSortBlock/evoSortBlock.inc.php';

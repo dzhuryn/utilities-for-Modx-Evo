@@ -137,3 +137,16 @@ Temporary Items
 /assets/tvs/multitv/configs/links.config.inc.php
 /assets/tvs/multitv/configs/multicontent.config.inc.php
 /assets/tvs/multitv/configs/event.config.inc.php
+!/assets/lib/
+/assets/lib/Helpers/
+/assets/lib/class.modxRTEbridge.php
+/assets/lib/Formatter/
+/assets/lib/APIHelpers.class.php
+/assets/lib/.htaccess
+/assets/lib/class.summary.php
+/assets/lib/document.class.inc.php
+/assets/lib/resourse.php
+/assets/lib/SimpleTab/
+/assets/lib/MODxAPI/
+/assets/lib/Module/
+/assets/lib/phpQuery/

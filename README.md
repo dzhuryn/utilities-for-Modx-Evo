@@ -85,3 +85,45 @@ round - округление в большую сторону. Если надо
             &outerTpl=`@CODE:<ul class="characrteristics__list  characrteristics__list--indent">[+wrapper+]</ul>`
             &rowTpl=`@CODE:<li class="characrteristics__list-item"><span class="characrteristics__list-title">[+name+]</span><span class="characrteristics__list-info">[+value+]</span></li>`   
         ]]
+        
+### evoSortBlock
+Сниппет для формирования блока сортировки. Из приятных вещей.
+1. Удобная кастомизация.
+2. Ajax совместимый из eFilter
+
+
+##### Параметры
+1. displayConfig  настройка селекта или ссылок для указания количества товаров на странице. Пример: 20||30||40||все==all.  
+2. sortConfig  настройка  ссылок для указания поля по которому товары сортируються. Пример: По название==pagetitle||По индексу==menuindex
+
+##### Шаблоны
+1. ownerTpl - Основная обертка блока.  
+    Плейсхолдеры ```[+class+] [+display.block+] [+sort.block+]```.  
+    Пример: ```<div class="[+class+]">[+display.block+][+sort.block+]</div>```
+2. displayOwnerTpl - обертка блока для выбора количества елементов на странице.  
+    Плейсхолдеры: ```[+class+]">[+wrapper+]```  
+    Пример: ```<select class="[+class+]">[+wrapper+]</select>```  
+    Пример: ```<div class="[+class+]">[+wrapper+]</div>```
+3. displayRowTpl - Шаблон вывода строки. ( option для селекта или тег a для блока).  
+    Плейсхолдеры: ```[+value+],[+selected+],[+data+],[+class+],[+caption+] ```  
+    Пример: ``` <option value="[+value+]" [+selected+] >[+caption+]</option>```  
+    Пример: ``` <a [+data+] class="[+class+]">[+caption+]</a> ```  
+
+4. sortOwnerTpl  - обертка блока для выбора поля по которому елементы сортируються на странице.  
+    Плейсхолдеры: ```[+wrapper+]``` 
+    Пример: ```<ul>[+wrapper+]</ul>``` 
+    
+5. sortRowTpl - Шаблон вывода ссылки для выбора поля.
+        Плейсхолдеры: ```[+class+],[+data+] [+caption+]``` 
+        Пример: ```<a class="[+class+]" [+data+]>[+caption+]</a>``` 
+        
+##### Классы       
+1. displayActiveClass - Клас для активного пунка в выборе количеста елементов на странице.
+2. sortActiveClass - Клас для активного пунка в выборе поля для сортировки елементов на странице.
+3. sortUpClass - Класс когда сортировка от маленького к большому
+4. sortDownClass - Класс когда сортировка от большого к маленькому
+
+##### Значения по умолчаеию
+1. displayDefault - количество елементов на странице по умолчанию
+2. sortFieldDefault - поле сортировки по умолчанию
+3. sortOrderDefault - направление сортировки по умолчанию
