@@ -13,7 +13,17 @@ if(!empty($_REQUEST['sortBy']) && !empty($_SESSION['sortBy']) &&$_REQUEST['sortB
     $_SESSION['sortOrder'] = $_SESSION['sortOrder']=='desc'?'asc':'desc';
 }
 if(!empty($_REQUEST['sortBy'])){
-    $_SESSION['sortBy'] = $_REQUEST['sortBy'];
+    $resp  = explode(':',$_REQUEST['sortBy']);
+    $sortBy = $resp[0];
+    $sortOrder = $resp[1];
+
+
+    $_SESSION['sortBy'] = $sortBy;
+    if(!empty($sortOrder)){
+        $_SESSION['sortOrder']  = $sortOrder;
+    }
+
+
 }
 
 
@@ -93,16 +103,31 @@ if(is_array($sortField)){
     foreach ($sortField as $el) {
         $resp = explode('==',$el);
         $caption = $resp[0];
-        $value =empty($resp[1])?$resp[0]:$resp[1] ;
+        $resp  = empty($resp[1])?$resp[0]:$resp[1] ;
+        $resp = explode(':',$resp);
+        $value = $resp[0];
+        if(!empty($resp[1])){
+            $valueOrder = $resp[1];
+        }
+        else{
+            $valueOrder = '';
+        }
+
+
         $dataAttr = 'data-value = "'.$value.'"';
 
         $selected = '';
         $class = ' set-sort-field';
 
-        if($value==$currentSortField){
+        if($value==$currentSortField && empty($valueOrder)){
             $class.=' '.$sortActiveClass;
             $selected = ' selected';
         }
+        if(!empty($valueOrder) && $valueOrder==$currentSortOrder && $value==$currentSortField){
+            $class.=' '.$sortActiveClass;
+            $selected = ' selected';
+        }
+
         if($currentSortOrder=='desc'){
             $class.=' '.$sortUpClass;
         }
