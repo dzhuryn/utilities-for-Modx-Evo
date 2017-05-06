@@ -98,7 +98,9 @@ class tvsList{
         $this->getTvs();
         $data = $this->data;
         $itemStr = '';
-        foreach ($data as $item) {
+        foreach ($data as $key=> $item) {
+
+
             if(!empty($this->notIn[$item['name']])){
                 continue;
             }
@@ -112,7 +114,14 @@ class tvsList{
                 $value = $defaultValue;
             }
 
-            $itemStr .= $this->modx->parseText($this->config['rowTpl'],['name'=>$name,'value'=>$value]);
+            $class = $key % 2==0?'odd':'even';
+
+
+            $itemStr .= $this->modx->parseText($this->config['rowTpl'],[
+                'name'=>$name,
+                'value'=>$value,
+                'class'=>$class
+            ]);
         }
         $outer = $this->modx->parseText($this->config['outerTpl'],['wrapper'=>$itemStr]);
         return $outer;
