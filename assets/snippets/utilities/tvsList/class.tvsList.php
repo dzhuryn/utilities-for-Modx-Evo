@@ -8,6 +8,8 @@ class tvsList{
     public $TVR;
     public $data = [];
     public $notIn = [];
+    public $params = [];
+
 
     /**
      * tvsList constructor.
@@ -27,7 +29,7 @@ class tvsList{
         $this->TVR = $this->modx->getFullTableName('site_tmplvar_contentvalues');
         $this->config = array_merge($this->config,$params);
 
-
+        $this->params = $params;
 
       //  var_dump($this->modx->getTpl($this->config['rowTpl']));
 
@@ -107,6 +109,7 @@ class tvsList{
             if(empty($item['value'])){
                 continue;
             }
+            $tvName = $item['name'];
             $name =$this->prepareName($item);
             $value = $item['value'];
             $defaultValue = $this->modx->runSnippet('default',['name'=>$item['name'],'val'=>$item['value']]);
@@ -117,9 +120,13 @@ class tvsList{
             $class = $key % 2==0?'odd':'even';
 
 
-            $itemStr .= $this->modx->parseText($this->config['rowTpl'],[
+            $rowTpl = !empty($this->params['rowTpl_'.$tvName])?$this->modx->getTpl($this->params['rowTpl_'.$tvName]):$this->config['rowTpl'];
+            $itemStr .= $this->modx->parseText($rowTpl,[
                 'name'=>$name,
                 'value'=>$value,
+                'value_full'=>$item['value'],
+                'tvName'=>$tvName,
+
                 'class'=>$class
             ]);
         }
