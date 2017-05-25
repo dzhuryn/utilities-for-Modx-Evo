@@ -76,8 +76,10 @@ class tvsList{
             $tvs[]="'".$this->modx->db->escape($elem)."'";
         }
         $TT  = $this->modx->getFullTableName('site_tmplvar_templates');
-        $sql = "SELECT * FROM ". $this->T ." INNER JOIN  ". $this->TVR ."  ON ". $this->T .".id = ". $this->TVR .".tmplvarid 
-                        WHERE contentid = ". $docId ;
+        $sql = "SELECT * 
+                FROM ". $this->T .",$TT,$this->TVR
+                WHERE $this->T .id =  $this->TVR.tmplvarid  and $TT.tmplvarid = $this->T.id 
+                      and $TT.templateid = 6 and  contentid = ". $docId ;
         switch ($this->config['selectType']){
             case 'category':
                 if(!empty($category)){
