@@ -75,11 +75,12 @@ class tvsList{
         foreach ($tvsResp as $elem) {
             $tvs[]="'".$this->modx->db->escape($elem)."'";
         }
+        $template = $this->modx->documentObject['template'];
         $TT  = $this->modx->getFullTableName('site_tmplvar_templates');
         $sql = "SELECT * 
                 FROM ". $this->T .",$TT,$this->TVR
                 WHERE $this->T .id =  $this->TVR.tmplvarid  and $TT.tmplvarid = $this->T.id 
-                      and $TT.templateid = 6 and  contentid = ". $docId ;
+                      and $TT.templateid = '.$template.' and  contentid = ". $docId ;
         switch ($this->config['selectType']){
             case 'category':
                 if(!empty($category)){
