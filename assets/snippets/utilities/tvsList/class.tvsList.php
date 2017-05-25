@@ -75,6 +75,7 @@ class tvsList{
         foreach ($tvsResp as $elem) {
             $tvs[]="'".$this->modx->db->escape($elem)."'";
         }
+        $TT  = $this->modx->getFullTableName('site_tmplvar_templates');
         $sql = "SELECT * FROM ". $this->T ." INNER JOIN  ". $this->TVR ."  ON ". $this->T .".id = ". $this->TVR .".tmplvarid 
                         WHERE contentid = ". $docId ;
         switch ($this->config['selectType']){
@@ -91,6 +92,7 @@ class tvsList{
                 }
                 break;
         }
+        $sql .= " order by $TT.rank";
         $this->data = $this->modx->db->makeArray($this->modx->db->query($sql));
     }
     public function prepareName($name){
