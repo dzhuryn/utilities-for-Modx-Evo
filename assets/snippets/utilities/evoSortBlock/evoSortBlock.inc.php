@@ -43,6 +43,10 @@ $currentDisplay = $_SESSION['sortDisplay'];
 $currentSortField = $_SESSION['sortBy'];
 $currentSortOrder = $_SESSION['sortOrder'];
 
+$modx->setPlaceholder('sortDisplay',$currentDisplay);
+$modx->setPlaceholder('sortBy',$currentSortField);
+$modx->setPlaceholder('sortOrder',$currentSortOrder);
+
 //конфиг
 $displayConfig = isset($displayConfig)?$displayConfig:'20||30||40||все==all';
 $sortConfig = isset($sortConfig)?$sortConfig:'По название==pagetitle||По индексу==menuindex';
