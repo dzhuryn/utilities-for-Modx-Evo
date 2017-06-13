@@ -165,6 +165,8 @@ $data = [
     'sort.block'=>$sortOuter,
     'class'=>$class
 ];
+$modx->setPlaceholder('display.block',$displayOuter);
+$modx->setPlaceholder('sort.block',$sortOuter);
 $output = $modx->parseText($ownerTpl,$data);
 
 echo $output;
